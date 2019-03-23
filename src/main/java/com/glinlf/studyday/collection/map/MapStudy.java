@@ -1,8 +1,9 @@
 package com.glinlf.studyday.collection.map;
 
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Map;
+import org.junit.Test;
+
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author glinlf
@@ -39,6 +40,51 @@ public class MapStudy {
         return map;
     }
 
+    /**
+     * JDK1.7 使用的是分段锁 segment数组结构 + HashEntry数组结构
+     * JDK1.8 使用的是CAS+Synchronized保证并发的安全（synchronized只锁定当前链表或红黑二叉树的首节点，这样只要hash不冲突，就不会产生并发）。数据结构和1.8的HashMap类似（数组+链表/红黑树）
+     *
+     * @return
+     */
+    static Map getConCurrentHashMap() {
+        Map map = new ConcurrentHashMap();
+        map.put("ConcurrentHashMap", "ConcurrentHashMap");
+        map.put(null, "null");
+        return map;
+    }
+
+    /**
+     * 保证插入的顺序性 有序！
+     * allow null key
+     * @return
+     */
+    static Map getLinkedHashMap() {
+        var map = new LinkedHashMap<>();
+        map.put("3", "3");
+        map.put(null, "1");
+        map.put("2", "2");
+        map.put("1", "1");
+        map.put("4", "4");
+        map.put("5", "5");
+        return map;
+    }
+
+    /**
+     * not allow null key
+     * 默认排序 升序
+     *
+     * @return
+     */
+    static Map getTreeMap() {
+        var map = new TreeMap<>();
+        map.put("1", "1");
+        map.put("3", "3");
+//        map.put(null, "1");
+        map.put("2", "2");
+        map.put("4", "4");
+        return map;
+    }
+
     public static void main(String[] args) {
         var map = MapStudy.getHashMap();
         System.out.println(map);
@@ -60,5 +106,17 @@ public class MapStudy {
         // 补充:
         // 位或运算符（|）运算规则：两个数都转为二进制，然后从高位开始比较，两个数只要有一个为1则为1，否则就为0。
         // 位非运算符（~）运算规则：如果位为0，结果是1，如果位为1，结果是0.
+    }
+
+    @Test
+    public void testLinkedHashMap() {
+        var map = MapStudy.getLinkedHashMap();
+        System.out.println(map);
+    }
+
+    @Test
+    public void testTreeMap() {
+        var map = MapStudy.getTreeMap();
+        System.out.println(map);
     }
 }
