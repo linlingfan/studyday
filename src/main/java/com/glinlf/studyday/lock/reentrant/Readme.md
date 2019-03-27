@@ -1,6 +1,8 @@
 ## ReenTrantLoack (重入锁)
 
-[ReentranLock 深入研究]{https://www.cnblogs.com/xrq730/p/4979021.html}
+[ReentranLock 深入研究](https://www.cnblogs.com/xrq730/p/4979021.html)
+
+[其他参考](https://www.cnblogs.com/zhimingyang/p/5702752.html)
 
 - Lock主要实现有 ReentrantLock、ReadLock和WriteLock。
 

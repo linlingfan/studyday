@@ -109,6 +109,9 @@ public class SynchronizedStudy {
     }
 
     // 使用线程池的方式
+    public void createThreadPool(){
+        Exce
+    }
 
 
     // Lambda并行流表达式的实现(parallelStream)
