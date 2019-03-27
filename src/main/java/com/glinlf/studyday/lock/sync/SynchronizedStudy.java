@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -108,9 +110,15 @@ public class SynchronizedStudy {
         }).start();
     }
 
-    // 使用线程池的方式
-    public void createThreadPool(){
-        Exce
+    // 使用线程池的方式 参见thread
+    public void createThreadPool() {
+        ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
+        cachedThreadPool.execute(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("run...");
+            }
+        });
     }
 
 
