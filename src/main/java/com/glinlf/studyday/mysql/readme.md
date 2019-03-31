@@ -118,6 +118,15 @@ MySQL为解决并发,数据安全，使用了锁的机制。
 
     事务更新大表中的大部分数据直接使用表级锁效率更高；
     事务比较复杂，使用行级索很可能引起死锁导致回滚。
+    
+    其他相关：
+    1. innodb对于行的查询使用next-key lock
+    2. Next-locking keying为了解决Phantom Problem幻读问题
+    3. 当查询的索引含有唯一属性时，将next-key lock降级为record key
+    4. Gap锁设计的目的是为了阻止多个事务将记录插入到同一范围内，而这会导致幻读问题的产生
+    5. 有两种方式显式关闭gap锁：（除了外键约束和唯一性检查外，其余情况仅使用record lock） 
+        A. 将事务隔离级别设置为Read Committed
+        B. 将参数innodb_locks_unsafe_for_binlog设置为1
 
   - 按是否可写分类（表级锁和行级锁可以进一步划分为共享锁（s）和排他锁（X））
     - 共享锁（读锁）
@@ -193,6 +202,12 @@ MySQL为解决并发,数据安全，使用了锁的机制。
         1. 客户端代理（Sharding-JDBC）
         2. 中间件代理（mycat）
 - #### 分布式事务
+参考[https://www.cnblogs.com/jiangyu666/p/8522547.html](https://www.cnblogs.com/jiangyu666/p/8522547.html)
 
+   解决方案：
+    1. 基于XA协议的两阶段提交方案。
+    2. TCC方案
+    3. 基于消息的最终一致性方案
+    4. GTS--分布式事务解决方案
 
 - #### mysql集群相关？？
