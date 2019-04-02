@@ -201,6 +201,10 @@ MySQL为解决并发,数据安全，使用了锁的机制。
     - 水平分区(分片的常见方案)
         1. 客户端代理（Sharding-JDBC）
         2. 中间件代理（mycat）
+        
+    -  ###### 分库分表
+        1. 
+        
 - #### 分布式事务
 参考[https://www.cnblogs.com/jiangyu666/p/8522547.html](https://www.cnblogs.com/jiangyu666/p/8522547.html)
 
