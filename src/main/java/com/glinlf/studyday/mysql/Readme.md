@@ -189,7 +189,8 @@ MySQL 是默认使用REPEATABLE_READ隔离级别；Oracle默认采用READ_COMMIT
 |PROPAGATION_NEVER|以非事务方式执行，如果当前存在事务，则抛出异常。|
 |PROPAGATION_NESTED|如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则执行与PROPAGATION_REQUIRED类似的操作。|
 
-- spring事务注解失效的原因？
+- spring事务注解失效的原因？TODO
+
 
 
 - #### 锁机制（MYISAM存储引擎和InnoDB存储引擎的锁）
