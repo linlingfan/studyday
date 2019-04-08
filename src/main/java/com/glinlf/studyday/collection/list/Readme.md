@@ -16,4 +16,10 @@
         - ArrayList的空间浪费主要体现在在list列表的结尾会预留一定的容量空间，
         - 而LinkedList的空间花费则体现在它的每一个元素都需要消耗比ArrayList更多的空间（因为要存放直接后继和直接前驱以及数据）。 
 
-
+### 创建线程安全的集合类
+    
+    ```
+        List<E> synArrayList = Collections.synchronizedList(new ArrayList<E>());
+        
+    ```
+    - Collections针对每种集合都声明了一个线程安全的包装类，在原集合的基础上添加了锁对象，集合中的每个方法都通过这个锁对象实现同步
