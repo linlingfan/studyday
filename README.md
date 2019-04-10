@@ -282,3 +282,15 @@
 -- 流利说
 
 -- 奇码
+
+### LOG
+
+    - 日志为什么是线程安全的
+    https://juejin.im/entry/5707d6f11ea4930055a894ca
+    https://www.jianshu.com/p/7850fad8b61d
+    https://www.cnblogs.com/dongfuye/p/3888128.html
+    https://www.oschina.net/question/124592_136609
+    
+    http://developer.51cto.com/art/200803/67666.htm
+    
+    
