@@ -69,6 +69,9 @@ static final int hash(Object key) {
 
  红黑树（自平衡的排序二叉树）
  
+LinkedHashMap 继承自HashMap 所以他的底层仍然是基于拉链式散列结构即由数组he红黑树组成。
+另外linkedHashMap 在上面结构的基础上，增加了一条双向链表，使得上面的结构可以保持键值对的插入顺序。同时通过对链表进行相应的操作，实现了访问顺序相关逻辑。
+ 
  
 
 

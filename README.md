@@ -275,6 +275,8 @@
 
 ### 设计模式
 
+### 
+
 ### 面试期间相关题mark
 
 -- 有赞
@@ -292,5 +294,17 @@
     https://www.oschina.net/question/124592_136609
     
     http://developer.51cto.com/art/200803/67666.htm
+
+### 当前任务2019-04-17
+    
+    - Java current包下相关锁
+
+    - springboot 相关
+        1. 初始化过程
+        2. IOC AOP等理论
+        3. MVC 初始化
+    - mybatis原理
+    
+    - 
     
     

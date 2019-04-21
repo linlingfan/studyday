@@ -226,7 +226,7 @@ MySQL为解决并发,数据安全，使用了锁的机制。
     
     其他相关：
     1. innodb对于行的查询使用next-key lock
-    2. Next-locking keying为了解决Phantom Problem幻读问题
+    2. Next-key lock为了解决Phantom Problem幻读问题
     3. 当查询的索引含有唯一属性时，将next-key lock降级为record key
     4. Gap锁设计的目的是为了阻止多个事务将记录插入到同一范围内，而这会导致幻读问题的产生
     5. 有两种方式显式关闭gap锁：（除了外键约束和唯一性检查外，其余情况仅使用record lock） 

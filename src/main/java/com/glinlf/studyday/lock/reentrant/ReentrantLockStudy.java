@@ -138,4 +138,9 @@ public class ReentrantLockStudy {
         consumerThread.start();
         Thread.sleep(5000l);
     }
+
+    @Test
+    public void testLock(){
+        lock.lock();
+    }
 }

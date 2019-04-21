@@ -29,7 +29,7 @@ Lock lock = new ReentrantLock(false) // 公平锁
 Lock类分公平锁和不公平锁，公平锁是按照加锁顺序来的，非公平锁是不按顺序的，也就是说先执行lock方法的锁不一定先获得锁。
 不过Lock底层基于AQS实现，队列先进先出，先出的线程大概率获取到锁。
 
-#### Condition 对象。制定操作线程状态（注意制定唤起线程）
+#### Condition 对象。制定操作线程状态（注意制定唤起线程）Condition一般是和线程绑定
 - condition.wait() 线程等待。
 - condition.signal() 唤起线程。
 - Condition类的awiat方法和Object类的wait方法等效
