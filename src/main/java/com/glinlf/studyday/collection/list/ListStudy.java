@@ -1,9 +1,9 @@
 package com.glinlf.studyday.collection.list;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import org.junit.Test;
+
+import javax.swing.*;
+import java.util.*;
 
 /**
  * @author glinlf
@@ -68,5 +68,39 @@ public class ListStudy {
         }
 
         System.out.println(linkedList.get(1));
+    }
+
+    /**
+     * Iterator he ListIterator的区别
+     */
+    @Test
+    public void testIterator() {
+        List list = ListStudy.getArrayList();
+        Iterator iterator = list.iterator(); // 创建迭代器
+        while (iterator.hasNext()) {
+//            if (iterator.next() == "str") {
+//                list.add(321);  // 不允许插入或修改list，抛出线程不安全修改异常(源码对比了list的修改版本号)， 但是允许使用Iterator的remove删除操作。
+//                list.remove(iterator.next()); // 不允许 只能使用iterator的删除方法
+//                iterator.remove();
+//            }
+            System.out.println(iterator.next());
+        }
+
+        ListIterator listIterator = list.listIterator();
+
+//        listIterator.hasPrevious(); // 逆向遍历
+        while (listIterator.hasNext()) {
+            int index = listIterator.nextIndex(); // nextIndex 要在 listIterator.next()之前获取。不然下标加1了
+            Object obj = listIterator.next();
+            System.out.println("index:" + index + ",value:" + obj);
+            if (obj == null) {
+                listIterator.add(321); // ListIterator 允许增加删除修改等操作
+//                listIterator.remove();
+            }
+        }
+
+        for (Object o : list) {
+            System.out.println(o);
+        }
     }
 }

@@ -12,18 +12,27 @@ import java.util.concurrent.TimeUnit;
  **/
 public class ThreadStudy {
 
+    // SynchronousQueue 阻塞队列 ； 生产者生产速度大于线程处理速度，会一直创建新线程去处理... 注意oom
     ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
 
     public void cachedThreadPool() {
-        cachedThreadPool.execute(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println("run...");
-            }
-        });
+        for (int i =0 ;i<5000;i++) {
+            cachedThreadPool.execute(new Runnable() {
+                @Override
+                public void run() {
+                    System.out.println("run..." + Thread.currentThread().getName());
+                    try {
+                        Thread.sleep(10000l);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            });
+        }
     }
 
-
+    // 队列没有限制大小，默认无限大。job队列可能因为太大oom？
     ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3);
 
     public void fixedThreadPool() {
@@ -72,7 +81,9 @@ public class ThreadStudy {
         }
     }
 
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws InterruptedException {
+        ThreadStudy study = new ThreadStudy();
+        study.cachedThreadPool();
+        Thread.sleep(10000l);
     }
 }

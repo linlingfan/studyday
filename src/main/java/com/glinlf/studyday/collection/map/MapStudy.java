@@ -20,6 +20,7 @@ public class MapStudy {
      * @return
      */
     static Map getHashMap() {
+
         var hashMap = new HashMap<>();
         hashMap.put("hello", "world");
         hashMap.put(null, "null");
