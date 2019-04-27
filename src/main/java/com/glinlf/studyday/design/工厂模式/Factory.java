@@ -62,6 +62,9 @@ class FactorySimple {
 
 interface CarFactory {
     Car1 getCar();
+//    default Car1 getCars(){
+//        return new CarBwm1();
+//    }
 }
 
 class CarBWMFactory implements CarFactory {
@@ -83,7 +86,7 @@ class CarBenZFactory implements CarFactory {
 
 abstract class AbstractFactory {
 
-    abstract Car1 getCar();
+     abstract Car1 getCar();
 }
 
 class CarBWMFactory1 extends AbstractFactory {

@@ -8,7 +8,8 @@ import java.util.concurrent.TimeUnit;
 /**
  * @author glinlf
  * @date 2019-03-27
- * @Description TODO
+ * @Description 创建线程池 推荐使用 ThreadPoolExecutor 构造函数实现。
+ * 使用Executors 各种oom问题
  **/
 public class ThreadStudy {
 
@@ -16,7 +17,7 @@ public class ThreadStudy {
     ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
 
     public void cachedThreadPool() {
-        for (int i =0 ;i<5000;i++) {
+        for (int i = 0; i < 5000; i++) {
             cachedThreadPool.execute(new Runnable() {
                 @Override
                 public void run() {
