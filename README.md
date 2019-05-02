@@ -175,7 +175,6 @@
 - #### MyCat 使用。用于分布式数据库 读写分离等。代理...
 
 ---
-
 ### Redis 
 
 - ### 数据类型 
@@ -219,7 +218,6 @@
     - 缓存预热
 
 ---
-
 ### 网络
    - #### 五层协议
         - 在计算机网络中中和OSI和TCP/IP的优点，采用一种只有五层协议的体系结构。
@@ -244,7 +242,6 @@
    - #### 为什么TCP连接是可靠的连接？
 
 ---
-
 ### 数据结构
 
     数组
@@ -255,7 +252,7 @@
     红黑树 TreeSet HashMap-J1.8+
     B+树  Mysql
     LMS树 HBase
-
+---
 ### 算法相关
     
     - 排序算法
@@ -269,7 +266,7 @@
     - 查询算法 --TODO
         
         二分查找法
-
+---
 ### 设计模式
 
     - 设计模式六大原则
@@ -295,7 +292,8 @@
 
 -- 锐战（游戏）
 
-### LOG
+---
+### LOG相关
 
     - 日志为什么是线程安全的
     https://juejin.im/entry/5707d6f11ea4930055a894ca
@@ -305,7 +303,6 @@
     http://developer.51cto.com/art/200803/67666.htm
     
 ---
-
 ### Spring相关
    - springboot 相关
        1. 初始化过程
@@ -326,17 +323,17 @@
 ---
 ### 补充 TODO
     
-   -[X] Java current包下相关锁
+   - [X] Java current包下相关锁
 
-   -[X] springboot 相关
+   - [X] springboot 相关
 
-   -[X] mybatis相关
+   - [X] mybatis相关
     
-   -[X] Spring-data-Jpa 和 Hibernate相关
+   - [X] Spring-data-Jpa 和 Hibernate相关
    
-   -[ ] SpringCloud相关
-   -[ ] Vue相关
-   -[ ] 算法相关 LeetCode...
-   -[ ] Go预言学习 goweb相关框架学习！
+   - [ ] SpringCloud相关
+   - [ ] Vue相关
+   - [ ] 算法相关 LeetCode...
+   - [ ] Go预言学习 GoWeb相关框架学习！
     
     
