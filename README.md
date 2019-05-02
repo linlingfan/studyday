@@ -7,14 +7,29 @@
 
 ---
 
-### 并发
-- [x] synchronized相关  done
+### Java并发编程
+
+  推荐去看 Java并发编程的艺术（虽然感觉讲的不是非常深入 不过很适合入门，基本够用！）
+  
+- [X] Volatile 相关
+    - 内存可见性 和 防止指令重排
+- [x] Synchronized相关  done
+    - 1.6后对Synchronized的优化 偏向锁 轻量锁 重量锁。
 - [x] ReenTrantLock使用 done
-- [ ] ReenTranLock 源码分析 
+    - ReenTranLock 源码分析
+    - AQS同步器原理(实现各种同步器)模板方法模式，继承并冲重写AQS方法 主要是加锁和解锁 
 - [x] java 创建线程池相关  done
+    - 不推荐使用Excutors工具类去创建默认的几种线程池。会有OOM风险...要么核心线程树可能过多要么 工作队列没有限制。
+    推荐使用ThreadPoolExecutor构造方法自己定制创建。设置适合的核心数，选择合适的阻塞队列类型以及大小。
+    - 线程池的工作原理
+    - 拒绝策略
 - [x] Java Thread状态切换 done
+
 - [x] 原子类相关笔记 done
 
+- #### 多线程安全
+    需要保证 1 原子性 2 可见性 3 顺序性 三大特性。
+    
 ---
 
 ### JVM 
@@ -157,19 +172,21 @@
 
 - #### mysql集群相关？？
 
+- #### MyCat 使用。用于分布式数据库 读写分离等。代理...
+
 ---
 
-### Redis
+### Redis 
 
 - ### 数据类型 
 
-- ### 数据结构
+- ### 数据结构 有点多emmm...
 
 - ### 使用场景
         
 - ### Redis 与 Memcached
 
-- ### Redis过期时间
+- ### Redis过期时间 过期策略
        
 - ### 数据淘汰策略
   
@@ -178,7 +195,7 @@
     - 快照RDB
     - AOF存储
 
-- ### 事务
+- ### 事务、分布式事务 SetNX / RedLock(不好用)
 
 - ### 事件 (具体说明)   
 
@@ -191,8 +208,15 @@
     
 - ### Sentinel哨兵模式
 
-- ### redis分片？？？
+- ### redis分片？？？ 一致性hash算法。
 
+- #### 为啥线程安全？
+    - 单线程 IO多路复用模型！
+- #### 缓存问题
+    - 缓存穿透
+    - 缓存击穿
+    - 缓存雪崩
+    - 缓存预热
 
 ---
 
@@ -266,14 +290,47 @@
 #### TCP和UDP的区别
 
 #### 浏览器输入url->显示主页的过程
+    - 注意 Https和Http的区别；Http在三次握手后还需要一次 SSL握手操作。
 
 ---
 
 ### 数据结构
 
+    数组
+    链表
+    队列
+    hash
+    二叉树
+    红黑树 TreeSet HashMap-J1.8+
+    B+树  Mysql
+    LMS树 HBase
+
 ### 算法相关
+    
+    - 排序算法
+        1. 冒泡排序
+        2. 选择排序
+        3. 插入排序
+        4. 快速排序
+        5. 归并排序
+        6. 快速排序
+        
+    - 查询算法 --TODO
+        
+        二分查找法
 
 ### 设计模式
+
+    - 设计模式六大原则
+
+   - [x] 工厂模式
+   - [x] 抽象工厂模式
+   - [X] 单例模式
+   - [x] 模仿方法模式
+   - [x] 策略模式
+   - [x] 适配器模式
+   - [X] 代理模式
+   - [ ] 装饰者模式
 
 ### 
 
@@ -283,7 +340,9 @@
 
 -- 流利说
 
--- 奇码
+-- 杏仁医生
+
+-- 锐战（游戏）
 
 ### LOG
 
@@ -292,19 +351,27 @@
     https://www.jianshu.com/p/7850fad8b61d
     https://www.cnblogs.com/dongfuye/p/3888128.html
     https://www.oschina.net/question/124592_136609
-    
     http://developer.51cto.com/art/200803/67666.htm
 
-### 当前任务2019-04-17
+### 补充 TODO
     
-    - Java current包下相关锁
+   - [X] Java current包下相关锁
 
-    - springboot 相关
-        1. 初始化过程
-        2. IOC AOP等理论
-        3. MVC 初始化
-    - mybatis原理
+   - [X] springboot 相关
+            1. 初始化过程
+            2. IOC AOP等理论
+            3. MVC 工作原理
+            4. bean的生命周期
+                    
+   -[X] mybatis相关
+        1. 实现原理 -对JDBC的封装...
+        2. 相关知识
     
-    - 
+   -[X] Spring-data-Jpa 和 Hibernate相关
+   
+   -[ ] SpringCloud相关
+   -[ ] Vue相关
+   -[ ] 算法相关 LeetCode...
+   -[ ] Go预言学习 goweb相关框架学习！
     
     
