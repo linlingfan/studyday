@@ -9,7 +9,7 @@ import java.util.Arrays;
  **/
 public class SortAlgorithm {
 
-    // 冒泡排序
+    // 冒泡排序： O(n^2)
     public static int[] bubbleSort(int[] arrs) {
         if (null == arrs || arrs.length == 0) {
             return arrs;
@@ -26,7 +26,7 @@ public class SortAlgorithm {
         return arrs;
     }
 
-    // 选择排序 选择最小或最大的 元素下标。最后交换位置
+    // 选择排序 选择最小或最大的 元素下标。最后交换位置 O(n^2)
     public static int[] selectSort(int[] arrs) {
         if (null == arrs || arrs.length == 0) {
             return arrs;
@@ -46,7 +46,7 @@ public class SortAlgorithm {
         return arrs;
     }
 
-    // 插入排序
+    // 插入排序 O(n^2)
     public static int[] insertSort(int[] arrs) {
         if (null == arrs || arrs.length == 0) {
             return arrs;
@@ -64,7 +64,7 @@ public class SortAlgorithm {
         return arrs;
     }
 
-    // 快速排序
+    // 快速排序 O(n^2)
     public static int[] quickSort(int[] arrs, int start, int end) {
         if (null == arrs || arrs.length < 1 || start < 0 || end < start) {
             return arrs;
@@ -73,17 +73,17 @@ public class SortAlgorithm {
         return arrs;
     }
 
-    // 快排递归算法
+    // 快排递归算法 时间复杂度O(nlogn)
     public static void partition(int[] arrs, int start, int end) {
         if (start > end)
             return;
         int i = start, j = end;
         int index = arrs[i]; // 取最左边为基数
         while (i < j) {
-            while (i < j && arrs[j] >= index) j--;
-            arrs[i++] = arrs[j];
-            while (i < j && arrs[i] <= index) i++;
-            arrs[j--] = arrs[i];
+            while (i < j && arrs[j] >= index) --j;
+            arrs[i] = arrs[j];
+            while (i < j && arrs[i] <= index) ++i;
+            arrs[j] = arrs[i];
         }
         arrs[i] = index; // 将基数跳入最后的坑
         partition(arrs, start, i - 1);
