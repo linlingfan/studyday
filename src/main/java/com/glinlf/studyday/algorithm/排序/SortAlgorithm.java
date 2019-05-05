@@ -46,6 +46,25 @@ public class SortAlgorithm {
         return arrs;
     }
 
+    public static int[] selectSortMin(int[] arrs) {
+        if (null == arrs || arrs.length == 0) {
+            return arrs;
+        }
+        for (int i = 0; i < arrs.length; i++) { // 从右边最大开始排序
+            int minIndex = i;
+            for (int j = i; j < arrs.length; j++) {
+                if (arrs[j] < arrs[minIndex]) {
+                    minIndex = j;
+                }
+            }
+            int swap = arrs[minIndex];
+            arrs[minIndex] = arrs[i];
+            arrs[i] = swap;
+
+        }
+        return arrs;
+    }
+
     // 插入排序 O(n^2)
     public static int[] insertSort(int[] arrs) {
         if (null == arrs || arrs.length == 0) {
@@ -55,7 +74,7 @@ public class SortAlgorithm {
         for (int i = 0; i < arrs.length - 1; i++) {
             insertNum = arrs[i + 1];
             int preIndex = i;
-            while (preIndex >= 0 && arrs[i] > arrs[preIndex]) {
+            while (preIndex >= 0 && insertNum < arrs[preIndex]) {
                 arrs[preIndex + 1] = arrs[preIndex];
                 preIndex--;
             }
@@ -78,23 +97,29 @@ public class SortAlgorithm {
         if (start > end)
             return;
         int i = start, j = end;
-        int index = arrs[i]; // 取最左边为基数
+        int num = arrs[i]; // 取最左边为基数
         while (i < j) {
-            while (i < j && arrs[j] >= index) --j;
-            arrs[i] = arrs[j];
-            while (i < j && arrs[i] <= index) ++i;
-            arrs[j] = arrs[i];
+            while (i < j && arrs[j] >= num) j--;
+            arrs[i]=arrs[j];
+            while (i < j && arrs[i] <= num) i++;
+            arrs[j]=arrs[i];
+//            int temp = arrs[i];
+//            arrs[i] = arrs[j];
+//            arrs[j] = temp;
         }
-        arrs[i] = index; // 将基数跳入最后的坑
+//        arrs[start]=arrs[i];
+//        arrs[i]=num;
+        arrs[i] = num; // 填入基数
         partition(arrs, start, i - 1);
-        partition(arrs, i - 1, end);
+        partition(arrs, i + 1, end);
     }
 
     public static void main(String[] args) {
         int[] arrs = {8, 3, 1, 4, 5, 2, 6, 7};
-        System.out.println(Arrays.toString(SortAlgorithm.bubbleSort(arrs)));
-        System.out.println(Arrays.toString(SortAlgorithm.selectSort(arrs)));
-        System.out.println(Arrays.toString(SortAlgorithm.insertSort(arrs)));
-        System.out.println(Arrays.toString(SortAlgorithm.quickSort(arrs, 0, args.length - 1)));
+//        System.out.println(Arrays.toString(SortAlgorithm.bubbleSort(arrs)));
+//        System.out.println(Arrays.toString(SortAlgorithm.selectSort(arrs)));
+//        System.out.println(Arrays.toString(SortAlgorithm.selectSortMin(arrs)));
+//        System.out.println(Arrays.toString(SortAlgorithm.insertSort(arrs)));
+        System.out.println(Arrays.toString(SortAlgorithm.quickSort(arrs, 0, arrs.length - 1)));
     }
 }
