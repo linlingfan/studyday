@@ -83,7 +83,7 @@ public class SortAlgorithm {
         return arrs;
     }
 
-    // 快速排序 O(n^2)
+    // 快速排序
     public static int[] quickSort(int[] arrs, int start, int end) {
         if (null == arrs || arrs.length < 1 || start < 0 || end < start) {
             return arrs;
